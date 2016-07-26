@@ -1,0 +1,19 @@
+{
+    "name": "",
+    "description": "",
+    "authors": [
+        {
+            "name": "",
+            "email": ""
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vendor\\": "src/Vendor/"
+        }
+    },
+    "minimum-stability": "stable"
+}
