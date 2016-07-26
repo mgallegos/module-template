@@ -6,7 +6,7 @@ use Carbon\Carbon;
 
 use Illuminate\Support\ServiceProvider;
 
-class DecimaAccountingServiceProvider extends ServiceProvider {
+class DecimaModuleServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
