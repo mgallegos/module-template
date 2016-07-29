@@ -7,7 +7,7 @@
  * See COPYRIGHT and LICENSE.
  */
 
-namespace Mgallegos\DecimaAccounting\Accounting\Controllers;
+namespace Vendor\DecimaModule\Module\Controllers;
 
 use Illuminate\Session\SessionManager;
 
@@ -19,7 +19,7 @@ use Illuminate\View\Factory;
 
 use App\Http\Controllers\Controller;
 
-class AccountManager extends Controller {
+class EmpleadoManager extends Controller {
 
 	/**
 	 * Account Manager Service
@@ -53,9 +53,9 @@ class AccountManager extends Controller {
 	 */
 	protected $Session;
 
-	public function __construct(AccountManagementInterface $AccountManagerService, Factory $View, Request $Input, SessionManager $Session)
+	public function __construct(/*AccountManagementInterface $AccountManagerService,*/ Factory $View, Request $Input, SessionManager $Session)
 	{
-		$this->AccountManagerService = $AccountManagerService;
+		// $this->AccountManagerService = $AccountManagerService;
 
 		$this->View = $View;
 
@@ -66,13 +66,11 @@ class AccountManager extends Controller {
 
 	public function getIndex()
 	{
-		return $this->View->make('decima-accounting::account-management')
-						->with('newAccountAction', $this->Session->get('newAccountAction', false))
-						->with('editAccountAction', $this->Session->get('editAccountAction', false))
-						->with('deleteAccountAction', $this->Session->get('deleteAccountAction', false))
-						->with('accounts', $this->AccountManagerService->getGroupsAccounts())
-						->with('balanceTypes', $this->AccountManagerService->getBalanceTypes())
-						->with('acountTypes', $this->AccountManagerService->getAccountsTypes());
+		return $this->View->make('decima-module::empleado-management')
+						->with('newEmpleadoAction', $this->Session->get('newEmpleadoAction', false))
+						->with('editEmpleadoAction', $this->Session->get('editEmpleadoAction', false))
+						->with('deleteEmpleadoAction', $this->Session->get('deleteEmpleadoAction', false));
+						// ->with('accounts', $this->AccountManagerService->getGroupsAccounts())
 	}
 
 	public function postAccountGridData()
