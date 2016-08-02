@@ -84,9 +84,11 @@ class DecimaModuleServiceProvider extends ServiceProvider {
 	*/
 	protected function registerModuleTableNameInterface()
 	{
-		$this->app->bind('Vendor\DecimaModule\Module\Repositories\ModuleTableName\ModuleTableNameInterface', function()
+		$this->app->bind('Vendor\DecimaModule\Module\Repositories\ModuleTableName\ModuleTableNameInterface', function($app)
 		{
-			return new \Vendor\DecimaModule\Module\Repositories\ModuleTableName\EloquentModuleTableName( new \Vendor\DecimaModule\Module\ModuleTableName() );
+			$AuthenticationManager = $app->make('App\Kwaai\Security\Services\AuthenticationManagement\AuthenticationManagementInterface');
+
+			return new \Vendor\DecimaModule\Module\Repositories\ModuleTableName\EloquentModuleTableName( new \Vendor\DecimaModule\Module\ModuleTableName() , $AuthenticationManager->getCurrentUserOrganizationConnection());
 		});
 	}
 
