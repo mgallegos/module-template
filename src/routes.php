@@ -45,7 +45,7 @@ Route::group(array('middleware' => array('auth'), 'prefix' => 'recurso-humano'),
 
 		Route::group(array('middleware' => array('check.first.time.access', 'check.access', 'csrf')), function()
 		{
-			Route::controller('/empleados', 'Vendor\DecimaModule\Module\Controllers\EmpleadoManager');
+			// Route::controller('/empleados', 'Vendor\DecimaModule\Module\Controllers\EmpleadoManager');
 		});
 	});
 });

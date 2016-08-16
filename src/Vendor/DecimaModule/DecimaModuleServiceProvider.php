@@ -50,9 +50,9 @@ class DecimaModuleServiceProvider extends ServiceProvider {
 
 		// $this->registerJournalConfiguration();
 
-		// $this->registerAccountChartTypeInterface();
+		// $this->registerModuleTableNameInterface();
 
-		// $this->registerJournalManagementInterface();
+		// $this->registerModuleAppManagementInterface();
 	}
 
 	/**
@@ -66,7 +66,7 @@ class DecimaModuleServiceProvider extends ServiceProvider {
 	}
 
 	/**
-	* Register a new organization trigger.
+	* Register journal configuration.
 	*
 	* @return void
 	*/
@@ -99,9 +99,9 @@ class DecimaModuleServiceProvider extends ServiceProvider {
 	*/
 	protected function registerModuleAppManagementInterface()
 	{
-		$this->app->bind('Vendor\DecimaModule\Module\Repositories\ModuleTableName\ModuleTableNameInterface', function($app)
+		$this->app->bind('Vendor\DecimaModule\Module\Services\ModuleTableNameManagement\ModuleAppManagementInterface', function($app)
 		{
-			return new \Vendor\DecimaModule\Module\Repositories\ModuleTableName\ModuleAppManager(
+			return new \Vendor\DecimaModule\Module\Services\ModuleTableNameManagement\ModuleAppManager(
 				$app->make('App\Kwaai\Security\Services\AuthenticationManagement\AuthenticationManagementInterface'),
 				$app->make('App\Kwaai\Security\Services\JournalManagement\JournalManagementInterface'),
 				$app->make('App\Kwaai\Security\Repositories\Journal\JournalInterface'),
