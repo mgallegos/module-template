@@ -3,10 +3,10 @@
  * @file
  * SEC_User Table Seeder
  *
- * All DecimaAccounting code is copyright by the original authors and released under the GNU Aferro General Public License version 3 (AGPLv3) or later.
+ * All DecimaModule code is copyright by the original authors and released under the GNU Aferro General Public License version 3 (AGPLv3) or later.
  * See COPYRIGHT and LICENSE.
  */
-namespace Mgallegos\DecimaAccounting\Accounting\Triggers;
+namespace Vendor\DecimaModule\Module\Triggers;
 
 use Illuminate\Routing\UrlGenerator;
 

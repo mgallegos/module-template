@@ -4,7 +4,7 @@
  * @file
  * Application Routes.
  *
- * All DecimaAccounting code is copyright by the original authors and released under the GNU Aferro General Public License version 3 (AGPLv3) or later.
+ * All DecimaModule code is copyright by the original authors and released under the GNU Aferro General Public License version 3 (AGPLv3) or later.
  * See COPYRIGHT and LICENSE.
  */
 
@@ -19,33 +19,33 @@
 |
 */
 
-Route::group(array('middleware' => array('auth', 'check.first.time.access', 'check.access', 'csrf'), 'prefix' => 'recurso-humano/mantemiento'), function()
+Route::group(array('middleware' => array('auth', 'check.first.time.access', 'check.access', 'csrf'), 'prefix' => 'module/setup'), function()
 {
 	// Route::controller('/initial-accounting-setup', 'Mgallegos\DecimaAccounting\Accounting\Controllers\SettingManager');
 });
 
-Route::group(array('middleware' => array('auth'), 'prefix' => 'recurso-humano'), function()
+Route::group(array('middleware' => array('auth'), 'prefix' => 'module'), function()
 {
 	Route::group(array('prefix' => '/mantenimiento'), function()
 	{
-		Route::get('/empleados/new', function()
+		Route::get('/app/new', function()
 		{
-			return Redirect::to('recurso-humano/mantemiento/empleados')->with('newEmpleadoAction', true);
+			return Redirect::to('module/setup/app')->with('newAppAction', true);
 		});
 
-		Route::get('/empleados/edit', function()
+		Route::get('/app/edit', function()
 		{
-			return Redirect::to('recurso-humano/mantemiento/empleados')->with('editEmpleadoAction', true);
+			return Redirect::to('module/setup/app')->with('editAppAction', true);
 		});
 
-		Route::get('/empleados/delete', function()
+		Route::get('/app/delete', function()
 		{
-			return Redirect::to('recurso-humano/mantemiento/empleados')->with('deleteEmpleadoAction', true);
+			return Redirect::to('module/setup/app')->with('deleteAppAction', true);
 		});
 
 		Route::group(array('middleware' => array('check.first.time.access', 'check.access', 'csrf')), function()
 		{
-			// Route::controller('/empleados', 'Vendor\DecimaModule\Module\Controllers\EmpleadoManager');
+			// Route::controller('/app', 'Vendor\DecimaModule\Module\Controllers\AppManager');
 		});
 	});
 });

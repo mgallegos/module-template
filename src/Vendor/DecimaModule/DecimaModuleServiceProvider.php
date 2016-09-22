@@ -48,7 +48,7 @@ class DecimaModuleServiceProvider extends ServiceProvider {
     __DIR__.'/../../migrations/' => database_path('/migrations')
 		], 'migrations');
 
-		// $this->registerJournalConfiguration();
+		$this->registerJournalConfiguration();
 
 		// $this->registerModuleTableNameInterface();
 

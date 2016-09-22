@@ -3,16 +3,16 @@
  * @file
  * Check Accounting Setup Middleware.
  *
- * All DecimaAccounting code is copyright by the original authors and released under the GNU Aferro General Public License version 3 (AGPLv3) or later.
+ * All DecimaModule code is copyright by the original authors and released under the GNU Aferro General Public License version 3 (AGPLv3) or later.
  * See COPYRIGHT and LICENSE.
  */
 
-namespace Mgallegos\DecimaAccounting\Accounting\Middleware;
+namespace Vendor\DecimaModule\Module\Middleware;
 
 use Closure;
 use Mgallegos\DecimaAccounting\Accounting\Services\SettingManagement\SettingManagementInterface;
 
-class CheckAccountingSetup {
+class Check {
 
 	/**
 	 * Setting Manager Service
