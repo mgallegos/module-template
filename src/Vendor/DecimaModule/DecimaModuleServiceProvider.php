@@ -77,48 +77,48 @@ class DecimaModuleServiceProvider extends ServiceProvider {
 		$this->app->instance('AppJournalConfigurations', array_merge($journalConfiguration, $this->app['config']->get('module-journal')));
 	}
 
-	/**
-	* Register a ... interface instance.
-	*
-	* @return void
-	*/
-	protected function registerModuleTableNameInterface()
-	{
-		$this->app->bind('Vendor\DecimaModule\Module\Repositories\ModuleTableName\ModuleTableNameInterface', function($app)
-		{
-			$AuthenticationManager = $app->make('App\Kwaai\Security\Services\AuthenticationManagement\AuthenticationManagementInterface');
-
-			return new \Vendor\DecimaModule\Module\Repositories\ModuleTableName\EloquentModuleTableName( new \Vendor\DecimaModule\Module\ModuleTableName() , $AuthenticationManager->getCurrentUserOrganizationConnection());
-		});
-	}
-
-	/**
-	* Register a ... interface instance.
-	*
-	* @return void
-	*/
-	protected function registerModuleAppManagementInterface()
-	{
-		$this->app->bind('Vendor\DecimaModule\Module\Services\ModuleTableNameManagement\ModuleAppManagementInterface', function($app)
-		{
-			return new \Vendor\DecimaModule\Module\Services\ModuleTableNameManagement\ModuleAppManager(
-				$app->make('App\Kwaai\Security\Services\AuthenticationManagement\AuthenticationManagementInterface'),
-				$app->make('App\Kwaai\Security\Services\JournalManagement\JournalManagementInterface'),
-				$app->make('App\Kwaai\Security\Repositories\Journal\JournalInterface'),
-				new	\Mgallegos\LaravelJqgrid\Encoders\JqGridJsonEncoder($app->make('excel')),
-				new	\Vendor\DecimaModule\Module\Repositories\ModuleTableName\EloquentModuleTableNameGridRepository(
-					$app['db'],
-					$app->make('App\Kwaai\Security\Services\AuthenticationManagement\AuthenticationManagementInterface'),
-					$app['translator']
-				),
-				$app->make('Vendor\DecimaModule\Module\Repositories\ModuleTableName\ModuleTableNameInterface'),
-				new Carbon(),
-				$app['db'],
-				$app['translator'],
-				$app['config']
-			);
-		});
-	}
+	// /**
+	// * Register a ... interface instance.
+	// *
+	// * @return void
+	// */
+	// protected function registerModuleTableNameInterface()
+	// {
+	// 	$this->app->bind('Vendor\DecimaModule\Module\Repositories\ModuleTableName\ModuleTableNameInterface', function($app)
+	// 	{
+	// 		$AuthenticationManager = $app->make('App\Kwaai\Security\Services\AuthenticationManagement\AuthenticationManagementInterface');
+	//
+	// 		return new \Vendor\DecimaModule\Module\Repositories\ModuleTableName\EloquentModuleTableName( new \Vendor\DecimaModule\Module\ModuleTableName() , $AuthenticationManager->getCurrentUserOrganizationConnection());
+	// 	});
+	// }
+	//
+	// /**
+	// * Register a ... interface instance.
+	// *
+	// * @return void
+	// */
+	// protected function registerModuleAppManagementInterface()
+	// {
+	// 	$this->app->bind('Vendor\DecimaModule\Module\Services\ModuleTableNameManagement\ModuleAppManagementInterface', function($app)
+	// 	{
+	// 		return new \Vendor\DecimaModule\Module\Services\ModuleTableNameManagement\ModuleAppManager(
+	// 			$app->make('App\Kwaai\Security\Services\AuthenticationManagement\AuthenticationManagementInterface'),
+	// 			$app->make('App\Kwaai\Security\Services\JournalManagement\JournalManagementInterface'),
+	// 			$app->make('App\Kwaai\Security\Repositories\Journal\JournalInterface'),
+	// 			new	\Mgallegos\LaravelJqgrid\Encoders\JqGridJsonEncoder($app->make('excel')),
+	// 			new	\Vendor\DecimaModule\Module\Repositories\ModuleTableName\EloquentModuleTableNameGridRepository(
+	// 				$app['db'],
+	// 				$app->make('App\Kwaai\Security\Services\AuthenticationManagement\AuthenticationManagementInterface'),
+	// 				$app['translator']
+	// 			),
+	// 			$app->make('Vendor\DecimaModule\Module\Repositories\ModuleTableName\ModuleTableNameInterface'),
+	// 			new Carbon(),
+	// 			$app['db'],
+	// 			$app['translator'],
+	// 			$app['config']
+	// 		);
+	// 	});
+	// }
 
 	/**
 	 * Get the services provided by the provider.
