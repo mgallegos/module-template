@@ -10,6 +10,7 @@
 namespace Vendor\DecimaModule\Module\Middleware;
 
 use Closure;
+
 use Mgallegos\Vendor\DecimaModule\Services\SettingManagement\SettingManagementInterface;
 
 class Check {
@@ -26,6 +27,7 @@ class Check {
 	 * Create a new filter instance.
 	 *
 	 * @param  SettingManagementInterface $SettingManagerService
+	 *
 	 * @return void
 	 */
 	public function __construct(SettingManagementInterface $SettingManagerService)
@@ -38,6 +40,7 @@ class Check {
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @param  \Closure  $next
+	 *
 	 * @return mixed
 	 */
 	public function handle($request, Closure $next)

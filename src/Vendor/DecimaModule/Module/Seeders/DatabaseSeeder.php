@@ -9,6 +9,7 @@
 namespace Vendor\DecimaModule\Module\Seeders;
 
 use Illuminate\Database\Seeder;
+
 use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder {

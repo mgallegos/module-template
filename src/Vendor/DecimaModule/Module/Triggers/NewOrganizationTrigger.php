@@ -16,7 +16,6 @@ use App\Kwaai\Organization\Repositories\Organization\NewOrganizationTriggerInter
 
 use Mgallegos\Vendor\DecimaModule\Repositories\Setting\SettingInterface;
 
-
 class NewOrganizationTrigger implements NewOrganizationTriggerInterface {
 
 	/**

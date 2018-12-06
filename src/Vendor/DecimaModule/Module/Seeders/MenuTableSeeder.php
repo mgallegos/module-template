@@ -9,9 +9,13 @@
 namespace Vendor\DecimaModule\Module\Seeders;
 
 use DB;
+
 use App\Kwaai\Security\Module;
+
 use App\Kwaai\Security\Menu;
+
 use App\Kwaai\Security\Permission;
+
 use Illuminate\Database\Seeder;
 
 class MenuTableSeeder extends Seeder {
