@@ -21,7 +21,7 @@
 
 Route::group(array('middleware' => array('auth', 'check.first.time.access', 'check.access', 'csrf'), 'prefix' => 'module/setup'), function()
 {
-	// Route::controller('/initial-accounting-setup', 'Mgallegos\DecimaAccounting\Accounting\Controllers\SettingManager');
+	// Route::controller('/initial-DecimaModule-setup', 'Mgallegos\Vendor\DecimaModule\Controllers\SettingManager');
 });
 
 Route::group(array('middleware' => array('auth'), 'prefix' => 'module'), function()

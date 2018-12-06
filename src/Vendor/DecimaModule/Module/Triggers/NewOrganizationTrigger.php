@@ -14,7 +14,7 @@ use Illuminate\Translation\Translator;
 
 use App\Kwaai\Organization\Repositories\Organization\NewOrganizationTriggerInterface;
 
-use Mgallegos\DecimaAccounting\Accounting\Repositories\Setting\SettingInterface;
+use Mgallegos\Vendor\DecimaModule\Repositories\Setting\SettingInterface;
 
 
 class NewOrganizationTrigger implements NewOrganizationTriggerInterface {
@@ -22,7 +22,7 @@ class NewOrganizationTrigger implements NewOrganizationTriggerInterface {
 	/**
 	* Setting
 	*
-	* @var Mgallegos\DecimaAccounting\Accounting\Repositories\Setting\SettingInterface
+	* @var Mgallegos\Vendor\DecimaModule\Repositories\Setting\SettingInterface
 	*
 	*/
 	protected $Setting;
@@ -69,7 +69,7 @@ class NewOrganizationTrigger implements NewOrganizationTriggerInterface {
 		$this->Setting->changeDatabaseConnection($databaseConnectionName);
 		$this->Setting->create(array('organization_id' => $id));
 
-		array_push($userAppsRecommendations, array('appName' => $this->Lang->get('decima-accounting::menu.initialAccountingSetup'), 'appAction' => $this->Lang->get('decima-accounting::initial-accounting-setup.action')));
+		array_push($userAppsRecommendations, array('appName' => $this->Lang->get('decima-DecimaModule::menu.initialDecimaModuleSetup'), 'appAction' => $this->Lang->get('decima-DecimaModule::initial-DecimaModule-setup.action')));
 	}
 
 }

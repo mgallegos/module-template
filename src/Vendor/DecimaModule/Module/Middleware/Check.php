@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Check Accounting Setup Middleware.
+ * Check DecimaModule Setup Middleware.
  *
  * All DecimaModule code is copyright by the original authors and released under the GNU Aferro General Public License version 3 (AGPLv3) or later.
  * See COPYRIGHT and LICENSE.
@@ -10,14 +10,14 @@
 namespace Vendor\DecimaModule\Module\Middleware;
 
 use Closure;
-use Mgallegos\DecimaAccounting\Accounting\Services\SettingManagement\SettingManagementInterface;
+use Mgallegos\Vendor\DecimaModule\Services\SettingManagement\SettingManagementInterface;
 
 class Check {
 
 	/**
 	 * Setting Manager Service
 	 *
-	 * @var Mgallegos\DecimaAccounting\Accounting\Services\SettingManagement\SettingManagementInterface
+	 * @var Mgallegos\Vendor\DecimaModule\Services\SettingManagement\SettingManagementInterface
 	 *
 	 */
 	protected $SettingManagerService;
@@ -42,9 +42,9 @@ class Check {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if(!$this->SettingManagerService->isAccountingSetup())
+		if(!$this->SettingManagerService->isDecimaModuleSetup())
 		{
-			return redirect('accounting/setup/initial-accounting-setup');
+			return redirect('DecimaModule/setup/initial-DecimaModule-setup');
 		}
 
 		return $next($request);

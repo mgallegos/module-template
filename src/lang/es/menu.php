@@ -13,9 +13,11 @@ return array(
 
  	'setup' => 'Configuración ()',
 
-  'new' => '',
+  'appManagement' => 'Gestión de ...',
 
-  'edit' => '',
+  'newApp' => 'Nuevo ...',
 
-  'delete' => '',
+  'editAppAction' => 'Editar ... existente',
+
+  'deleteAppAction' => 'Eliminar ... existente',
 );
